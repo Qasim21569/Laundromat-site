@@ -13,8 +13,8 @@ export function Footer() {
               <Image
                 src="/images/clarkson-logo.png"
                 alt="Clarkson Laundry and Shipping"
-                width={40}
-                height={40}
+                width={120}
+                height={120}
                 className="rounded-lg"
               />
               <div>
