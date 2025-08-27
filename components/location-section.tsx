@@ -13,7 +13,7 @@ export function LocationSection() {
           {/* Location Info */}
           <div className="location-info space-y-8">
             <div>
-              <h2 className="font-heading font-bold text-4xl text-foreground mb-4">Visit Our Modern Facility</h2>
+              <h2 className="font-cartoon font-bold text-5xl text-foreground mb-4">Visit Our Modern Facility</h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
                 Conveniently located in Clarkston with ample parking, modern equipment, and a comfortable environment
                 for all your service needs.
@@ -29,7 +29,7 @@ export function LocationSection() {
                   <div className="flex-1">
                     <h3 className="font-semibold text-foreground mb-2">Address</h3>
                     <p className="text-muted-foreground mb-3">
-                      1295 Brockett Rd, Suite A<br />
+                      1295 Brocket Road, Suite A<br />
                       Clarkston, GA 30021
                     </p>
                     <Button
@@ -59,7 +59,7 @@ export function LocationSection() {
                     <p className="text-muted-foreground mb-2">
                       <strong>Monday - Sunday:</strong>
                       <br />
-                      7:00 AM - 11:00 PM
+                      7:00 AM - 12:00 AM (Midnight)
                     </p>
                     <Badge className="bg-green-100 text-green-800 border-green-200">
                       <CheckCircleIcon className="w-3 h-3 mr-1" />
@@ -158,8 +158,8 @@ export function LocationSection() {
                     <MapPinIcon className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <div>
-                    <div className="font-semibold text-foreground">Clarkson Laundry & Shipping</div>
-                    <div className="text-sm text-muted-foreground">Suite A, Brockett Rd</div>
+                    <div className="font-semibold text-foreground">Clarkston Laundry & Shipping</div>
+                    <div className="text-sm text-muted-foreground">Suite A, Brocket Road</div>
                   </div>
                 </div>
               </div>

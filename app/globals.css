@@ -4,40 +4,45 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Clarkson Laundry brand colors based on design brief */
-  --background: oklch(0.99 0 0); /* #f8fafc */
-  --foreground: oklch(0.09 0 0); /* #0f172a */
-  --card: oklch(1 0 0); /* #ffffff */
-  --card-foreground: oklch(0.09 0 0); /* #0f172a */
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.09 0 0);
-  --primary: oklch(0.35 0.15 264); /* #1e40af - Clarkson primary blue */
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.55 0.15 264); /* #3b82f6 - Clarkson accent blue */
-  --secondary-foreground: oklch(1 0 0);
-  --muted: oklch(0.96 0 0); /* #f1f5f9 */
-  --muted-foreground: oklch(0.45 0 0); /* #475569 */
-  --accent: oklch(0.55 0.15 264); /* #3b82f6 */
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.92 0 0); /* #e2e8f0 */
-  --input: oklch(0.96 0 0);
-  --ring: oklch(0.55 0.15 264);
-  --chart-1: oklch(0.35 0.15 264);
-  --chart-2: oklch(0.55 0.15 264);
-  --chart-3: oklch(0.45 0 0);
-  --chart-4: oklch(0.65 0.15 45);
-  --chart-5: oklch(0.55 0.15 160);
+  /* Vintage 70s/80s Clarkston Laundry brand colors */
+  --background: #f8fafc; /* Light background */
+  --foreground: #1f2937; /* Dark text */
+  --card: #ffffff; /* White cards */
+  --card-foreground: #1f2937; /* Dark text on cards */
+  --popover: #ffffff;
+  --popover-foreground: #1f2937;
+  --primary: #8AAFB7; /* Overall theme color - soft clean blue */
+  --primary-foreground: #ffffff;
+  --secondary: #8AAFB7; /* Same as primary for consistency */
+  --secondary-foreground: #ffffff;
+  --muted: #f8fafc; /* Light muted */
+  --muted-foreground: #6b7280; /* Medium gray text */
+  --accent: #F3C45A; /* CTA color - warm vintage yellow for CTAs and highlights */
+  --accent-foreground: #1f2937; /* Dark text on yellow */
+  --footer: #153857; /* Deep navy blue from logo for footer */
+  --footer-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(3, 47, 75, 0.2); /* Dark blue border with transparency */
+  --input: #f8fafc;
+  --ring: #8aafb7;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --text-muted: #9ca3af;
+  --chart-1: #8aafb7;
+  --chart-2: #f3c458;
+  --chart-3: #6b7280;
+  --chart-4: #153857;
+  --chart-5: #10b981;
   --radius: 0.75rem;
-  --sidebar: oklch(1 0 0);
-  --sidebar-foreground: oklch(0.45 0 0);
-  --sidebar-primary: oklch(0.35 0.15 264);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.55 0.15 264);
-  --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0.92 0 0);
-  --sidebar-ring: oklch(0.55 0.15 264);
+  --sidebar: #ffffff;
+  --sidebar-foreground: #6b7280;
+  --sidebar-primary: #8aafb7;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f3c458;
+  --sidebar-accent-foreground: #1f2937;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #8aafb7;
 }
 
 .dark {
@@ -90,6 +95,11 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-footer: var(--footer);
+  --color-footer-foreground: var(--footer-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-text-muted: var(--text-muted);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
@@ -113,11 +123,12 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Custom font families for Clarkson branding */
-  --font-heading: var(--font-poppins), system-ui, -apple-system, sans-serif;
+  /* Modern Typography System */
+  --font-heading: var(--font-cartoon), system-ui, -apple-system, sans-serif;
   --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
-  --font-accent: var(--font-dm-sans), system-ui, -apple-system, sans-serif;
+  --font-accent: var(--font-dancing-script), cursive;
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-cartoon: var(--font-cartoon), system-ui, -apple-system, sans-serif;
 }
 
 @layer base {
@@ -140,12 +151,15 @@
   .font-accent {
     font-family: var(--font-accent);
   }
+
+  .font-cartoon {
+    font-family: var(--font-cartoon);
+  }
 }
 
-/* Custom animations for Clarkson website */
+/* Vintage 70s/80s animations and effects */
 @keyframes float {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0px);
   }
   50% {
@@ -154,12 +168,43 @@
 }
 
 @keyframes pulse-glow {
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(138, 175, 183, 0.3);
   }
   50% {
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 30px rgba(138, 175, 183, 0.5);
+  }
+}
+
+@keyframes vintage-wiggle {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(3deg) scale(1.05);
+  }
+  75% {
+    transform: rotate(-3deg) scale(1.05);
+  }
+}
+
+@keyframes vintage-slide-in {
+  0% {
+    transform: translateX(-100px) rotate(-5deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes vintage-bounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-15px) scale(1.05);
   }
 }
 
@@ -169,6 +214,61 @@
 
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-vintage-wiggle {
+  animation: vintage-wiggle 0.6s ease-in-out;
+}
+
+.animate-vintage-slide-in {
+  animation: vintage-slide-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-vintage-bounce {
+  animation: vintage-bounce 2s ease-in-out infinite;
+}
+
+/* Vintage-inspired utility classes */
+.vintage-banner {
+  background: linear-gradient(135deg, var(--accent), #e6b800);
+  transform: skew(-5deg);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.vintage-banner-content {
+  transform: skew(5deg);
+}
+
+.vintage-shadow {
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(138, 175, 183, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.vintage-glow {
+  box-shadow: 
+    0 0 20px rgba(243, 196, 88, 0.3),
+    0 0 40px rgba(243, 196, 88, 0.1);
+}
+
+.vintage-border {
+  border: 2px solid var(--accent);
+  position: relative;
+}
+
+.vintage-border::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 1px solid #032F4B;
+  border-radius: inherit;
+  pointer-events: none;
 }
 
 /* Smooth scrolling */

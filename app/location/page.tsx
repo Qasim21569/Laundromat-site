@@ -9,12 +9,22 @@ export default function LocationPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-to-br from-primary/5 via-accent/5 to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-heading font-bold text-foreground mb-6">Visit Our Location</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Conveniently located in Clarkston with easy parking and accessible facilities.
+            <div className="inline-block vintage-banner px-6 py-3 rounded-lg mb-6">
+              <div className="vintage-banner-content font-bold text-lg">
+                FIND US
+              </div>
+            </div>
+            <h1 className="font-cartoon font-bold text-5xl lg:text-6xl text-foreground mb-6 tracking-tight">
+              VISIT OUR
+              <span className="font-accent text-4xl lg:text-5xl text-primary block -mt-2">
+                Location
+              </span>
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Conveniently located in <span className="text-primary font-semibold">Clarkston</span> with easy parking and accessible facilities.
             </p>
           </div>
 
@@ -29,70 +39,73 @@ export default function LocationPage() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Clarkson Laundry and Shipping Location"
+                title="Clarkston Laundry and Shipping Location"
               />
             </div>
 
             {/* Location Info */}
             <div className="space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <MapPinIcon className="w-5 h-5 text-primary" />
+              <Card className="p-6 hover:shadow-lg transition-all duration-300 vintage-shadow hover:vintage-glow group border-2 border-border hover:border-accent/50">
+                <CardHeader className="pb-4">
+                  <CardTitle className="flex items-center gap-3 font-heading font-bold text-lg group-hover:text-accent transition-colors">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:animate-vintage-wiggle group-hover:bg-accent/20 transition-all">
+                      <MapPinIcon className="w-6 h-6 text-primary group-hover:text-accent transition-colors" />
+                    </div>
                     Address
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-foreground">
-                    1234 Market Street
+                  <p className="text-foreground font-medium leading-relaxed">
+                    1295 Brocket Road, Suite A
                     <br />
                     Clarkston, GA 30021
                   </p>
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <ClockIcon className="w-5 h-5 text-primary" />
+              <Card className="p-6 hover:shadow-lg transition-all duration-300 vintage-shadow hover:vintage-glow group border-2 border-border hover:border-accent/50">
+                <CardHeader className="pb-4">
+                  <CardTitle className="flex items-center gap-3 font-heading font-bold text-lg group-hover:text-accent transition-colors">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:animate-vintage-wiggle group-hover:bg-accent/20 transition-all">
+                      <ClockIcon className="w-6 h-6 text-primary group-hover:text-accent transition-colors" />
+                    </div>
                     Hours
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span>Monday - Friday</span>
-                      <span>6:00 AM - 10:00 PM</span>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between items-center">
+                      <span className="font-medium">Monday - Sunday</span>
+                      <span className="text-accent font-semibold">7:00 AM - 12:00 AM (Midnight)</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span>Saturday</span>
-                      <span>6:00 AM - 10:00 PM</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Sunday</span>
-                      <span>7:00 AM - 9:00 PM</span>
+                    <div className="vintage-border px-3 py-2 rounded-lg bg-gradient-to-r from-accent/5 to-primary/5">
+                      <div className="text-center text-xs font-semibold text-primary">
+                        Open 7 Days a Week
+                      </div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <PhoneIcon className="w-5 h-5 text-primary" />
+              <Card className="p-6 hover:shadow-lg transition-all duration-300 vintage-shadow hover:vintage-glow group border-2 border-border hover:border-accent/50">
+                <CardHeader className="pb-4">
+                  <CardTitle className="flex items-center gap-3 font-heading font-bold text-lg group-hover:text-accent transition-colors">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:animate-vintage-wiggle group-hover:bg-accent/20 transition-all">
+                      <PhoneIcon className="w-6 h-6 text-primary group-hover:text-accent transition-colors" />
+                    </div>
                     Contact
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <PhoneIcon className="w-4 h-4 text-muted-foreground" />
-                    <a href="tel:+14045551234" className="text-primary hover:underline">
+                <CardContent className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <PhoneIcon className="w-5 h-5 text-accent" />
+                    <a href="tel:+14045551234" className="text-primary hover:text-accent transition-colors font-medium">
                       (404) 555-1234
                     </a>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <EnvelopeIcon className="w-4 h-4 text-muted-foreground" />
-                    <a href="mailto:info@clarksonlaundry.com" className="text-primary hover:underline">
+                  <div className="flex items-center gap-3">
+                    <EnvelopeIcon className="w-5 h-5 text-accent" />
+                    <a href="mailto:info@clarksonlaundry.com" className="text-primary hover:text-accent transition-colors font-medium">
                       info@clarksonlaundry.com
                     </a>
                   </div>

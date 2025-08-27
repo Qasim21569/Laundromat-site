@@ -4,120 +4,127 @@ import { MapPinIcon, PhoneIcon, EnvelopeIcon, ClockIcon } from "@heroicons/react
 
 export function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer style={{ backgroundColor: 'var(--footer)' }} className="text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand & Contact */}
+          {/* Vintage Brand & Contact */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-4 mb-6">
               <Image
-                src="/images/clarkson-logo.png"
-                alt="Clarkson Laundry and Shipping"
-                width={120}
-                height={120}
-                className="rounded-lg"
+                src="/images/clarkston-logo.jpg"
+                alt="Clarkston Laundry and Shipping"
+                width={80}
+                height={80}
+                className="rounded-lg vintage-shadow"
               />
               <div>
-                <div className="font-heading font-bold text-xl">Clarkson</div>
-                <div className="font-accent text-sm opacity-90">Laundry & Shipping</div>
+                <div className="font-cartoon font-bold text-3xl tracking-tight">CLARKSTON</div>
+                <div className="font-body text-xl text-accent -mt-1 font-semibold">Laundry & Shipping</div>
+                <div className="text-sm text-white/70 font-accent">Since 2015</div>
               </div>
             </div>
 
-            <p className="text-primary-foreground/80 mb-6 max-w-md">
-              Your complete service center in Clarkston, Georgia. Modern laundromat, shipping services, and business
-              solutions all under one roof.
+            <p className="text-white/80 mb-6 max-w-md leading-relaxed">
+              Your complete service center in <span className="text-accent font-semibold">Clarkston, Georgia</span>. 
+              Modern laundromat, UPS Authorized Service Center, and business solutions all under one roof.
             </p>
 
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <MapPinIcon className="w-5 h-5" />
-                <span>1295 Brockett Rd, Suite A, Clarkston, GA 30021</span>
+                <MapPinIcon className="w-5 h-5 text-accent" />
+                <span className="text-white/90">1295 Brocket Road, Suite A, Clarkston, GA 30021</span>
               </div>
               <div className="flex items-center gap-3">
-                <PhoneIcon className="w-5 h-5" />
-                <a href="tel:+14045551234" className="hover:text-primary-foreground/80 transition-colors">
+                <PhoneIcon className="w-5 h-5 text-accent" />
+                <a href="tel:+14045551234" className="hover:text-accent transition-colors text-white/90">
                   (404) 555-1234
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <EnvelopeIcon className="w-5 h-5" />
+                <EnvelopeIcon className="w-5 h-5 text-accent" />
                 <a
                   href="mailto:info@clarksonlaundry.com"
-                  className="hover:text-primary-foreground/80 transition-colors"
+                  className="hover:text-accent transition-colors text-white/90"
                 >
                   info@clarksonlaundry.com
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <ClockIcon className="w-5 h-5" />
-                <span>Mon-Sun: 7:00 AM - 11:00 PM</span>
+                <ClockIcon className="w-5 h-5 text-accent" />
+                <span className="text-white/90">Mon-Sun: 7:00 AM - 12:00 AM (Midnight)</span>
               </div>
             </div>
           </div>
 
-          {/* Services */}
+          {/* Vintage Services */}
           <div>
-            <h3 className="font-heading font-semibold text-lg mb-4">Services</h3>
+            <h3 className="font-heading font-bold text-lg mb-4 text-accent">Services</h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/laundry"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                  className="text-white/80 hover:text-accent transition-colors flex items-center gap-2"
                 >
-                  Self-Service Laundromat
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/laundry"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  Wash & Fold
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/laundry"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  Pickup & Delivery
+                  🧺 Laundry Services
                 </Link>
               </li>
               <li>
                 <Link
                   href="/shipping"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                  className="text-white/80 hover:text-accent transition-colors flex items-center gap-2"
                 >
-                  UPS Shipping
+                  📦 UPS Shipping
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/commercial"
+                  className="text-white/80 hover:text-accent transition-colors flex items-center gap-2"
+                >
+                  🏢 Commercial Services
+                  <span className="vintage-banner px-2 py-1 text-xs rounded ml-1">
+                    <span className="vintage-banner-content text-xs">NEW</span>
+                  </span>
                 </Link>
               </li>
               <li>
                 <Link
                   href="/shipping"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                  className="text-white/80 hover:text-accent transition-colors flex items-center gap-2"
                 >
-                  Private Mailboxes
+                  📮 Private Mailboxes
                 </Link>
               </li>
               <li>
                 <Link
                   href="/shipping"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                  className="text-white/80 hover:text-accent transition-colors flex items-center gap-2"
                 >
-                  Amazon Lockers
+                  📱 Amazon Lockers
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Quick Links */}
+          {/* Vintage Quick Links */}
           <div>
-            <h3 className="font-heading font-semibold text-lg mb-4">Quick Links</h3>
+            <h3 className="font-heading font-bold text-lg mb-4 text-accent">Quick Links</h3>
             <ul className="space-y-2">
               <li>
                 <Link
+                  href="/promotions"
+                  className="text-white/80 hover:text-accent transition-colors flex items-center gap-2"
+                >
+                  Promotions
+                  <span className="vintage-banner px-2 py-1 text-xs rounded">
+                    <span className="vintage-banner-content text-xs">DEALS</span>
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/pricing"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                  className="text-white/80 hover:text-accent transition-colors"
                 >
                   Pricing
                 </Link>
@@ -125,7 +132,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/location"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                  className="text-white/80 hover:text-accent transition-colors"
                 >
                   Location & Hours
                 </Link>
@@ -133,7 +140,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                  className="text-white/80 hover:text-accent transition-colors"
                 >
                   About Us
                 </Link>
@@ -141,25 +148,22 @@ export function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                  className="text-white/80 hover:text-accent transition-colors"
                 >
                   Contact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/faq"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  FAQ
                 </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 mt-12 pt-8 text-center">
-          <p className="text-primary-foreground/60">© 2024 Clarkson Laundry and Shipping. All rights reserved.</p>
+        <div className="border-t border-white/20 mt-12 pt-8 text-center">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            <p className="text-white/60">© 2024 Clarkston Laundry and Shipping. All rights reserved.</p>
+            <div className="font-accent text-accent">
+              Serving Clarkston with modern excellence since 2015
+            </div>
+          </div>
         </div>
       </div>
     </footer>

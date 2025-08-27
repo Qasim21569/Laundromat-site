@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge"
 
 const serviceTypes = [
   { id: "laundry", name: "Laundry Services", icon: "🧺", description: "Self-service, wash & fold, pickup & delivery" },
-  { id: "shipping", name: "Shipping & Mail", icon: "📦", description: "UPS services, mailboxes, Amazon lockers" },
+  { id: "shipping", name: "Shipping & Mail", icon: "📦", description: "UPS Authorized Service Center, mailboxes, Amazon lockers (No USPS)" },
   { id: "business", name: "Business Services", icon: "💼", description: "Document shredding, ATM, office supplies" },
   { id: "general", name: "General Inquiry", icon: "💬", description: "Questions, feedback, or other requests" },
 ]
@@ -76,7 +76,7 @@ export function ContactSection() {
               <h3 className="font-semibold mb-2 text-foreground">Visit Us</h3>
               <p className="text-muted-foreground mb-3">Come see our modern facility</p>
               <p className="text-sm text-foreground">
-                1295 Brockett Rd, Suite A<br />
+                1295 Brocket Road, Suite A<br />
                 Clarkston, GA 30021
               </p>
             </Card>
@@ -87,7 +87,7 @@ export function ContactSection() {
               </div>
               <h3 className="font-semibold mb-2 text-foreground">Hours</h3>
               <p className="text-muted-foreground mb-3">Open 7 days a week</p>
-              <p className="text-sm text-foreground">Mon-Sun: 7:00 AM - 11:00 PM</p>
+              <p className="text-sm text-foreground">Mon-Sun: 7:00 AM - 12:00 AM (Midnight)</p>
               <Badge className="mt-2 bg-green-100 text-green-800 border-green-200">Open Now</Badge>
             </Card>
           </div>
