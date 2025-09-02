@@ -52,13 +52,20 @@ const GlowCard: React.FC<GlowCardProps> = ({
       }
     };
 
-    // Enhanced touch support for mobile devices
+    // Enhanced touch support for mobile devices without preventing scrolling
     const handleTouchMove = (e: TouchEvent) => {
-      e.preventDefault();
+      // Only prevent default if it's a horizontal touch movement
       const touch = e.touches[0];
-      if (touch) {
-        const { clientX: x, clientY: y } = touch;
-        if (cardRef.current) {
+      if (touch && cardRef.current) {
+        const rect = cardRef.current.getBoundingClientRect();
+        const isWithinCard = 
+          touch.clientX >= rect.left && 
+          touch.clientX <= rect.right && 
+          touch.clientY >= rect.top && 
+          touch.clientY <= rect.bottom;
+        
+        if (isWithinCard) {
+          const { clientX: x, clientY: y } = touch;
           cardRef.current.style.setProperty('--x', x.toFixed(2));
           cardRef.current.style.setProperty('--xp', (x / window.innerWidth).toFixed(2));
           cardRef.current.style.setProperty('--y', y.toFixed(2));
@@ -68,7 +75,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
     };
 
     document.addEventListener('pointermove', syncPointer);
-    document.addEventListener('touchmove', handleTouchMove, { passive: false });
+    document.addEventListener('touchmove', handleTouchMove, { passive: true });
     
     return () => {
       document.removeEventListener('pointermove', syncPointer);
@@ -133,7 +140,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
       backgroundAttachment: 'fixed',
       border: 'var(--border-size) solid var(--backup-border)',
       position: 'relative',
-      touchAction: 'none',
+      touchAction: 'pan-y',
     };
 
     // Add width and height if provided
@@ -228,7 +235,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
           cursor-pointer
           hover:shadow-2xl
           backdrop-blur-[5px]
-          touch-manipulation
+          touch-auto
           ${className}
         `}
       >

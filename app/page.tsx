@@ -9,7 +9,7 @@ import { Footer } from "@/components/footer"
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-background overflow-x-hidden relative">
+    <main className="min-h-screen bg-background relative">
       {/* Enhanced Page Background Texture */}
       <div className="fixed inset-0 pointer-events-none opacity-25">
         <div className="absolute inset-0" style={{

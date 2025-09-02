@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import { SVGWithFallback } from "@/components/svg-fallback"
 
 export function HowItWorksSection() {
   const steps = [
@@ -48,13 +47,13 @@ export function HowItWorksSection() {
 
       {/* Enhanced background elements with proper contrast */}
       <div className="absolute inset-0 opacity-25 hidden sm:block">
-        <div className="absolute top-10 sm:top-20 left-5 sm:left-10 w-20 sm:w-32 h-20 sm:h-32 bg-primary rounded-full blur-3xl animate-subtle-glow"></div>
-        <div className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-24 sm:w-40 h-24 sm:h-40 bg-accent rounded-full blur-3xl animate-subtle-glow" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-10 sm:top-20 left-5 sm:left-10 w-20 sm:w-32 h-20 sm:h-32 bg-primary rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-24 sm:w-40 h-24 sm:h-40 bg-accent rounded-full blur-3xl"></div>
         
         {/* Enhanced decorative elements */}
-        <div className="absolute top-1/3 left-1/4 w-16 h-16 border-2 border-primary/12 rounded-lg rotate-12 animate-slow-rotate"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-12 h-12 border-2 border-accent/12 rotate-45 animate-slow-rotate" style={{ animationDirection: 'reverse' }}></div>
-        <div className="absolute top-20 right-1/3 w-8 h-8 border border-accent/10 rounded-full animate-subtle-glow" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/3 left-1/4 w-16 h-16 border-2 border-primary/12 rounded-lg rotate-12"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-12 h-12 border-2 border-accent/12 rotate-45"></div>
+        <div className="absolute top-20 right-1/3 w-8 h-8 border border-accent/10 rounded-full"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -76,9 +75,9 @@ export function HowItWorksSection() {
         {/* Mobile-Responsive Steps Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-6">
           {steps.map((step, index) => (
-            <div key={index} className="group">
+            <div key={index}>
               {/* Mobile-Responsive Card */}
-              <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 h-full flex flex-col items-center text-center shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/50">
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 h-full flex flex-col items-center text-center shadow-lg border border-white/50">
                 {/* Step Number */}
                 <div className="mb-4 sm:mb-6">
                   <span className="font-body font-semibold text-primary text-xs sm:text-sm tracking-wide">
@@ -88,23 +87,18 @@ export function HowItWorksSection() {
 
                 {/* Mobile-Responsive SVG Illustration */}
                 <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mb-6 sm:mb-8 flex items-center justify-center mx-auto">
-                  <SVGWithFallback
+                  <Image
                     src={step.svgPath}
                     alt={`${step.title} - Step ${index + 1} illustration`}
                     width={240}
                     height={240}
                     priority={index < 2}
-                    fallbackIcon={index === 0 ? "📞" : index === 1 ? "🧼" : index === 2 ? "👔" : "🚚"}
-                    className="w-full h-full object-contain object-center group-hover:scale-110 transition-transform duration-300"
-                    style={{
-                      maxWidth: '100%',
-                      height: 'auto',
-                    }}
+                    className="w-full h-full object-contain object-center"
                   />
                 </div>
 
                 {/* Mobile-Responsive Title */}
-                <h3 className="font-cartoon font-bold text-xl sm:text-2xl text-foreground mb-3 sm:mb-4 group-hover:text-primary transition-colors">
+                <h3 className="font-cartoon font-bold text-xl sm:text-2xl text-foreground mb-3 sm:mb-4">
                   {step.title}
                 </h3>
 

@@ -161,52 +161,69 @@ export function ServicesGrid() {
             else if (service.category === 'shipping') glowColor = 'accent';
             else if (service.category === 'business') glowColor = 'footer';
             
-            return (
-              <GlowCard
-                key={service.id}
-                glowColor={glowColor}
-                customSize={true}
-                className="service-card group relative overflow-hidden h-full flex flex-col min-h-[280px] sm:min-h-[320px]"
-              >
-              {/* Mobile-Responsive Corner Banner */}
-              {service.popular && (
-                <div className="absolute -top-1 -right-1 vintage-banner px-2 sm:px-3 py-1 text-xs rounded-bl-lg z-10">
-                  <div className="vintage-banner-content font-bold">
-                    POPULAR
+            const CardContent = (
+              <>
+                {/* Mobile-Responsive Corner Banner */}
+                {service.popular && (
+                  <div className="absolute -top-1 -right-1 vintage-banner px-2 sm:px-3 py-1 text-xs rounded-bl-lg z-10">
+                    <div className="vintage-banner-content font-bold">
+                      POPULAR
+                    </div>
+                  </div>
+                )}
+
+                <div className="flex items-start justify-between mb-3 sm:mb-4">
+                  {/* Mobile-Responsive Icon */}
+                  <div className="service-icon w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-primary/10 rounded-xl flex items-center justify-center text-2xl sm:text-3xl group-hover:animate-vintage-wiggle transition-all group-hover:bg-accent/20">
+                    {service.icon}
+                  </div>
+                  <div className="service-arrow opacity-0 group-hover:opacity-100 transition-opacity text-accent text-lg sm:text-xl font-bold">
+                    →
                   </div>
                 </div>
-              )}
 
-              <div className="flex items-start justify-between mb-3 sm:mb-4">
-                {/* Mobile-Responsive Icon */}
-                <div className="service-icon w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-primary/10 rounded-xl flex items-center justify-center text-2xl sm:text-3xl group-hover:animate-vintage-wiggle transition-all group-hover:bg-accent/20">
-                  {service.icon}
+                <div className="mb-3 sm:mb-4 flex-grow">
+                  <h3 className="font-cartoon font-bold text-lg sm:text-xl text-foreground mb-2 group-hover:text-accent transition-colors line-clamp-2">
+                    {service.name}
+                  </h3>
+                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed line-clamp-3 sm:line-clamp-none">{service.description}</p>
                 </div>
-                <div className="service-arrow opacity-0 group-hover:opacity-100 transition-opacity text-accent text-lg sm:text-xl font-bold">
-                  →
+
+                {/* Mobile-Responsive Price Badge */}
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 mt-auto">
+                  <div className="vintage-border px-2 sm:px-3 py-1 rounded-lg bg-white">
+                    <span className="font-bold text-accent text-xs sm:text-sm">{service.priceRange}</span>
+                  </div>
+                  <Button variant="ghost" size="sm" className="text-accent hover:text-accent/80 hover:bg-accent/10 font-semibold text-xs sm:text-sm p-1 sm:p-2">
+                    Learn More →
+                  </Button>
+                </div>
+
+                {/* Hover Effect Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+              </>
+            );
+
+            return (
+              <div key={service.id}>
+                {/* Desktop: Use GlowCard with spotlight effect */}
+                <div className="hidden lg:block">
+                  <GlowCard
+                    glowColor={glowColor}
+                    customSize={true}
+                    className="service-card group relative overflow-hidden h-full flex flex-col min-h-[320px]"
+                  >
+                    {CardContent}
+                  </GlowCard>
+                </div>
+                
+                {/* Mobile/Tablet: Use regular Card without spotlight */}
+                <div className="block lg:hidden">
+                  <Card className="service-card group relative overflow-hidden h-full flex flex-col min-h-[280px] sm:min-h-[320px] p-4 sm:p-6 hover:shadow-lg transition-shadow">
+                    {CardContent}
+                  </Card>
                 </div>
               </div>
-
-              <div className="mb-3 sm:mb-4 flex-grow">
-                <h3 className="font-cartoon font-bold text-lg sm:text-xl text-foreground mb-2 group-hover:text-accent transition-colors line-clamp-2">
-                  {service.name}
-                </h3>
-                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed line-clamp-3 sm:line-clamp-none">{service.description}</p>
-              </div>
-
-              {/* Mobile-Responsive Price Badge */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 mt-auto">
-                <div className="vintage-border px-2 sm:px-3 py-1 rounded-lg bg-white">
-                  <span className="font-bold text-accent text-xs sm:text-sm">{service.priceRange}</span>
-                </div>
-                <Button variant="ghost" size="sm" className="text-accent hover:text-accent/80 hover:bg-accent/10 font-semibold text-xs sm:text-sm p-1 sm:p-2">
-                  Learn More →
-                </Button>
-              </div>
-
-              {/* Hover Effect Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
-              </GlowCard>
             );
           })}
         </div>
