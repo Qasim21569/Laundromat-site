@@ -86,7 +86,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
     return sizeMap[size];
   };
 
-  const getInlineStyles = () => {
+  const getInlineStyles = (): React.CSSProperties => {
     // Set saturation and lightness based on the specific color
     let saturation = 100;
     let lightness = 70;
@@ -106,7 +106,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
       bgOpacity = 0.15;
     }
 
-    const baseStyles = {
+    const baseStyles: React.CSSProperties & Record<string, any> = {
       '--base': base,
       '--spread': spread,
       '--saturation': saturation,
@@ -116,7 +116,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
       '--border': '2',
       '--backdrop': 'hsl(0 0% 100% / 0.95)',
       '--backup-border': 'hsl(0 0% 90% / 0.5)',
-      '--size': window.innerWidth < 768 ? '100' : '150', // Smaller spotlight on mobile
+      '--size': typeof window !== 'undefined' && window.innerWidth < 768 ? '100' : '150', // Smaller spotlight on mobile
       '--outer': '1',
       '--border-size': 'calc(var(--border, 2) * 1px)',
       '--spotlight-size': 'calc(var(--size, 150) * 1px)',
@@ -132,8 +132,8 @@ const GlowCard: React.FC<GlowCardProps> = ({
       backgroundPosition: '50% 50%',
       backgroundAttachment: 'fixed',
       border: 'var(--border-size) solid var(--backup-border)',
-      position: 'relative' as const,
-      touchAction: 'none' as const,
+      position: 'relative',
+      touchAction: 'none',
     };
 
     // Add width and height if provided
