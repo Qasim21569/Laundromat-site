@@ -18,9 +18,9 @@ export default function ShippingPage() {
                 UPS AUTHORIZED SERVICE CENTER
               </div>
             </div>
-            <h1 className="font-cartoon font-bold text-5xl lg:text-6xl text-foreground mb-6 tracking-tight">
+            <h1 className="font-cartoon font-bold text-5xl lg:text-6xl text-primary mb-6 tracking-tight">
               SHIPPING &
-              <span className="font-accent text-4xl lg:text-5xl text-primary block -mt-2">
+              <span className="font-accent text-4xl lg:text-5xl text-accent block -mt-2">
                 Mail Services
               </span>
             </h1>

@@ -30,15 +30,15 @@ export default function LaundryPage() {
           <div className="absolute top-10 left-10 w-4 h-4 bg-primary/20 rounded-full"></div>
           <div className="absolute top-20 right-20 w-3 h-3 bg-accent/20 rounded-full"></div>
           <div className="absolute bottom-20 left-20 w-2 h-2 bg-primary/20 rounded-full"></div>
-        </div>
+              </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center max-w-4xl mx-auto">
             <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 px-4 py-2 text-sm font-semibold">
               Premium Laundry Services
             </Badge>
-            <h1 className="font-cartoon font-bold text-6xl lg:text-7xl text-foreground mb-6 tracking-tight">
+            <h1 className="font-cartoon font-bold text-6xl lg:text-7xl text-primary mb-6 tracking-tight">
               Professional Laundry
-              <span className="block text-primary">Solutions</span>
+              <span className="block text-accent">Solutions</span>
             </h1>
             <p className="text-2xl text-muted-foreground mb-12 leading-relaxed">
               From personal self-service to commercial bulk solutions, we handle every laundry need with 
@@ -96,7 +96,7 @@ export default function LaundryPage() {
                 
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <SparklesIcon className="w-6 h-6 text-primary" />
+                  <SparklesIcon className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-2">Clean & Comfortable</h4>
@@ -163,7 +163,7 @@ export default function LaundryPage() {
                     <p className="text-muted-foreground">Professional • Fast • Quality</p>
                   </div>
                 </div>
-              </Card>
+            </Card>
             </div>
 
             <div className="space-y-8">
@@ -321,7 +321,7 @@ export default function LaundryPage() {
                     <p className="text-muted-foreground">Fast • Reliable • Host-Friendly</p>
                   </div>
                 </div>
-              </Card>
+            </Card>
             </div>
 
             <div className="space-y-8">
@@ -461,7 +461,7 @@ export default function LaundryPage() {
                     <p className="text-muted-foreground">Scalable • Reliable • Cost-Effective</p>
                   </div>
                 </div>
-              </Card>
+            </Card>
             </div>
           </div>
         </div>

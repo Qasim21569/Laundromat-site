@@ -17,9 +17,9 @@ export default function AboutPage() {
                 OUR STORY
               </div>
             </div>
-            <h1 className="font-cartoon font-bold text-5xl lg:text-6xl text-foreground mb-6 tracking-tight">
+            <h1 className="font-cartoon font-bold text-5xl lg:text-6xl text-primary mb-6 tracking-tight">
               ABOUT
-              <span className="font-body text-4xl lg:text-5xl text-primary block -mt-2 font-medium">
+              <span className="font-body text-4xl lg:text-5xl text-accent block -mt-2 font-medium">
                 Clarkston
               </span>
             </h1>

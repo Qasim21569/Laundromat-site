@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { GlowCard } from "@/components/ui/spotlight-card"
 
 const services = [
   {
@@ -112,38 +113,38 @@ export function ServicesGrid() {
   ]
 
   return (
-    <section className="py-24 bg-gradient-to-b from-background to-primary/5">
+    <section className="py-12 sm:py-16 lg:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Vintage Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-block vintage-banner px-6 py-3 rounded-lg mb-6">
-            <div className="vintage-banner-content font-bold text-lg">
+        {/* Mobile-Responsive Section Header */}
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <div className="inline-block vintage-banner px-4 sm:px-6 py-2 sm:py-3 rounded-lg mb-4 sm:mb-6">
+            <div className="vintage-banner-content font-bold text-sm sm:text-base lg:text-lg">
               COMPLETE SERVICE CENTER
             </div>
           </div>
-          <h2 className="font-cartoon font-bold text-5xl lg:text-6xl text-foreground mb-4 tracking-tight">
+          <h2 className="font-cartoon font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-primary mb-4 tracking-tight px-2">
             All Your Needs Under One
-            <span className="font-body text-5xl lg:text-6xl text-primary block -mt-2 font-medium">
+            <span className="font-body text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-accent block -mt-1 lg:-mt-2 font-medium">
               Modern Roof
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-4">
             From laundry and dry cleaning to shipping and business services, we're your complete convenience solution in
-            <span className="text-primary font-semibold"> Clarkston, Georgia</span>.
+            <span className="text-accent font-semibold"> Clarkston, Georgia</span>.
           </p>
         </div>
 
-        {/* Vintage Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        {/* Mobile-Responsive Category Filter */}
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-2">
           {categories.map((category) => (
             <Button
               key={category.id}
               variant={selectedCategory === category.id ? "default" : "outline"}
               onClick={() => setSelectedCategory(category.id)}
-              className={`rounded-full px-6 py-2 font-semibold transition-all hover:scale-105 ${
+              className={`rounded-full px-3 sm:px-4 lg:px-6 py-2 text-xs sm:text-sm lg:text-base font-semibold transition-all hover:scale-105 ${
                 selectedCategory === category.id 
                   ? "bg-accent text-accent-foreground vintage-glow" 
-                  : "border-primary text-primary hover:bg-primary hover:text-white"
+                  : "border-primary text-primary hover:bg-primary hover:text-primary-foreground"
               }`}
             >
               {category.name}
@@ -151,53 +152,63 @@ export function ServicesGrid() {
           ))}
         </div>
 
-        {/* Vintage Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredServices.map((service, index) => (
-            <Card
-              key={service.id}
-              className="service-card group p-6 hover:shadow-lg transition-all duration-300 cursor-pointer border-2 border-border hover:border-accent/50 vintage-shadow hover:vintage-glow relative overflow-hidden"
-            >
-              {/* Vintage Corner Banner */}
+        {/* Mobile-Responsive Services Grid with Spotlight Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+          {filteredServices.map((service, index) => {
+            // Determine glow color based on service category
+            let glowColor: 'primary' | 'accent' | 'footer' = 'primary';
+            if (service.category === 'laundry') glowColor = 'primary';
+            else if (service.category === 'shipping') glowColor = 'accent';
+            else if (service.category === 'business') glowColor = 'footer';
+            
+            return (
+              <GlowCard
+                key={service.id}
+                glowColor={glowColor}
+                customSize={true}
+                className="service-card group relative overflow-hidden h-full flex flex-col min-h-[280px] sm:min-h-[320px]"
+              >
+              {/* Mobile-Responsive Corner Banner */}
               {service.popular && (
-                <div className="absolute -top-1 -right-1 vintage-banner px-3 py-1 text-xs rounded-bl-lg">
+                <div className="absolute -top-1 -right-1 vintage-banner px-2 sm:px-3 py-1 text-xs rounded-bl-lg z-10">
                   <div className="vintage-banner-content font-bold">
                     POPULAR
                   </div>
                 </div>
               )}
 
-              <div className="flex items-start justify-between mb-4">
-                {/* Retro Icon Treatment */}
-                <div className="service-icon w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center text-3xl group-hover:animate-vintage-wiggle transition-all group-hover:bg-accent/20">
+              <div className="flex items-start justify-between mb-3 sm:mb-4">
+                {/* Mobile-Responsive Icon */}
+                <div className="service-icon w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-primary/10 rounded-xl flex items-center justify-center text-2xl sm:text-3xl group-hover:animate-vintage-wiggle transition-all group-hover:bg-accent/20">
                   {service.icon}
                 </div>
-                <div className="service-arrow opacity-0 group-hover:opacity-100 transition-opacity text-accent text-xl font-bold">
+                <div className="service-arrow opacity-0 group-hover:opacity-100 transition-opacity text-accent text-lg sm:text-xl font-bold">
                   →
                 </div>
               </div>
 
-              <div className="mb-4">
-                <h3 className="font-cartoon font-bold text-xl text-foreground mb-2 group-hover:text-accent transition-colors">
+              <div className="mb-3 sm:mb-4 flex-grow">
+                <h3 className="font-cartoon font-bold text-lg sm:text-xl text-foreground mb-2 group-hover:text-accent transition-colors line-clamp-2">
                   {service.name}
                 </h3>
-                <p className="text-muted-foreground text-base leading-relaxed">{service.description}</p>
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed line-clamp-3 sm:line-clamp-none">{service.description}</p>
               </div>
 
-              {/* Vintage Price Badge */}
-              <div className="flex items-center justify-between">
-                <div className="vintage-border px-3 py-1 rounded-lg bg-white">
-                  <span className="font-bold text-primary text-sm">{service.priceRange}</span>
+              {/* Mobile-Responsive Price Badge */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 mt-auto">
+                <div className="vintage-border px-2 sm:px-3 py-1 rounded-lg bg-white">
+                  <span className="font-bold text-accent text-xs sm:text-sm">{service.priceRange}</span>
                 </div>
-                <Button variant="ghost" size="sm" className="text-accent hover:text-accent/80 hover:bg-accent/10 font-semibold">
+                <Button variant="ghost" size="sm" className="text-accent hover:text-accent/80 hover:bg-accent/10 font-semibold text-xs sm:text-sm p-1 sm:p-2">
                   Learn More →
                 </Button>
               </div>
 
               {/* Hover Effect Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
-            </Card>
-          ))}
+              </GlowCard>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -15,7 +15,12 @@ export function Footer() {
                 alt="Clarkston Laundry and Shipping"
                 width={80}
                 height={80}
+                quality={90}
                 className="rounded-lg vintage-shadow"
+                style={{
+                  maxWidth: '100%',
+                  height: 'auto',
+                }}
               />
               <div>
                 <div className="font-cartoon font-bold text-3xl tracking-tight">CLARKSTON</div>

@@ -96,9 +96,9 @@ export default function CommercialPage() {
                 B2B SOLUTIONS
               </div>
             </div>
-            <h1 className="font-cartoon font-bold text-5xl lg:text-6xl text-foreground mb-6 tracking-tight">
+            <h1 className="font-cartoon font-bold text-5xl lg:text-6xl text-primary mb-6 tracking-tight">
               COMMERCIAL
-              <span className="font-accent text-4xl lg:text-5xl text-primary block -mt-2">
+              <span className="font-accent text-4xl lg:text-5xl text-accent block -mt-2">
                 Laundry Services
               </span>
             </h1>

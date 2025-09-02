@@ -4,45 +4,45 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Vintage 70s/80s Clarkston Laundry brand colors */
-  --background: #f8fafc; /* Light background */
-  --foreground: #1f2937; /* Dark text */
-  --card: #ffffff; /* White cards */
-  --card-foreground: #1f2937; /* Dark text on cards */
-  --popover: #ffffff;
-  --popover-foreground: #1f2937;
-  --primary: #8AAFB7; /* Overall theme color - soft clean blue */
-  --primary-foreground: #ffffff;
-  --secondary: #8AAFB7; /* Same as primary for consistency */
+  /* Enhanced theme with #8AAFB7 background and dark blue headings */
+  --background: #8AAFB7; /* Primary color as main background */
+  --foreground: #153857; /* Dark blue for main text and headings */
+  --card: rgba(255, 255, 255, 0.95); /* Semi-transparent white cards */
+  --card-foreground: #153857; /* Dark blue text on light cards */
+  --popover: rgba(255, 255, 255, 0.95);
+  --popover-foreground: #153857;
+  --primary: #153857; /* Dark blue as primary for headings */
+  --primary-foreground: #ffffff; /* White text on dark blue */
+  --secondary: #032F4B; /* Even darker blue for accents */
   --secondary-foreground: #ffffff;
-  --muted: #f8fafc; /* Light muted */
-  --muted-foreground: #6b7280; /* Medium gray text */
-  --accent: #F3C45A; /* CTA color - warm vintage yellow for CTAs and highlights */
-  --accent-foreground: #1f2937; /* Dark text on yellow */
+  --muted: rgba(21, 56, 87, 0.1); /* Dark blue transparent muted */
+  --muted-foreground: #032F4B; /* Dark blue for muted text */
+  --accent: #F3C45A; /* CTA color - warm yellow for CTAs and highlights */
+  --accent-foreground: #032F4B; /* Dark blue text on yellow */
   --footer: #153857; /* Deep navy blue from logo for footer */
   --footer-foreground: #ffffff;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: rgba(3, 47, 75, 0.2); /* Dark blue border with transparency */
-  --input: #f8fafc;
-  --ring: #8aafb7;
+  --border: rgba(21, 56, 87, 0.2); /* Dark blue border with transparency */
+  --input: rgba(255, 255, 255, 0.9);
+  --ring: #153857;
   --success: #10b981;
   --warning: #f59e0b;
-  --text-muted: #9ca3af;
-  --chart-1: #8aafb7;
+  --text-muted: #032F4B; /* Dark blue for readable muted text */
+  --chart-1: #153857;
   --chart-2: #f3c458;
-  --chart-3: #6b7280;
+  --chart-3: #032F4B;
   --chart-4: #153857;
   --chart-5: #10b981;
   --radius: 0.75rem;
-  --sidebar: #ffffff;
-  --sidebar-foreground: #6b7280;
-  --sidebar-primary: #8aafb7;
+  --sidebar: rgba(255, 255, 255, 0.95);
+  --sidebar-foreground: #153857;
+  --sidebar-primary: #153857;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #f3c458;
-  --sidebar-accent-foreground: #1f2937;
-  --sidebar-border: #e5e7eb;
-  --sidebar-ring: #8aafb7;
+  --sidebar-accent-foreground: #153857;
+  --sidebar-border: rgba(21, 56, 87, 0.2);
+  --sidebar-ring: #153857;
 }
 
 .dark {
@@ -208,6 +208,24 @@
   }
 }
 
+@keyframes subtle-glow {
+  0%, 100% {
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    filter: brightness(1.05) saturate(1.1);
+  }
+}
+
+@keyframes geometric-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -226,6 +244,14 @@
 
 .animate-vintage-bounce {
   animation: vintage-bounce 2s ease-in-out infinite;
+}
+
+.animate-subtle-glow {
+  animation: subtle-glow 4s ease-in-out infinite;
+}
+
+.animate-slow-rotate {
+  animation: geometric-rotate 20s linear infinite;
 }
 
 /* Vintage-inspired utility classes */
