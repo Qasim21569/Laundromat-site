@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -12,7 +13,7 @@ const services = [
     name: "Self Service",
     description: "Modern washers and dryers with comfortable seating area, free WiFi, and extended hours",
     priceRange: "From $2.50",
-    icon: "🧺",
+    icon: "/Service icons/self-service.png",
     popular: true,
     category: "laundry",
   },
@@ -21,7 +22,7 @@ const services = [
     name: "Wash & Fold",
     description: "Professional cleaning and expert folding service with same-day turnaround available",
     priceRange: "$1.50/lb",
-    icon: "👕",
+    icon: "/Service icons/wash-and-fold.png",
     popular: true,
     category: "laundry",
   },
@@ -30,7 +31,7 @@ const services = [
     name: "Commercial",
     description: "High-volume commercial laundry solutions for businesses, restaurants, and healthcare",
     priceRange: "Custom Quote",
-    icon: "🏢",
+    icon: "/Service icons/commercial.png",
     popular: true,
     category: "laundry",
   },
@@ -39,7 +40,7 @@ const services = [
     name: "Airbnb",
     description: "Specialized laundry service for Airbnb hosts with quick turnaround and quality folding",
     priceRange: "$2.00/lb",
-    icon: "🏠",
+    icon: "/Service icons/airbnb.png",
     popular: true,
     category: "laundry",
   },
@@ -48,7 +49,7 @@ const services = [
     name: "Multi-Unit Housing",
     description: "Bulk laundry services for apartment complexes, student housing, and residential properties",
     priceRange: "Volume Pricing",
-    icon: "🏘️",
+    icon: "/Service icons/multi-housing.png",
     popular: false,
     category: "laundry",
   },
@@ -57,7 +58,7 @@ const services = [
     name: "UPS Authorized Service Center",
     description: "Complete UPS services including drop-off, pickup scheduling, and packaging. No USPS drop-off.",
     priceRange: "UPS Rates",
-    icon: "📦",
+    icon: "/Service icons/ups-pickup.png",
     popular: true,
     category: "shipping",
   },
@@ -66,7 +67,7 @@ const services = [
     name: "Private Mailboxes",
     description: "Secure private mailbox rental with 24/7 access and mail forwarding",
     priceRange: "$25/month",
-    icon: "📬",
+    icon: "/Service icons/mail-box.png",
     popular: false,
     category: "mail",
   },
@@ -75,7 +76,7 @@ const services = [
     name: "Amazon Lockers",
     description: "Convenient Amazon package pickup location with extended hours",
     priceRange: "Free",
-    icon: "📱",
+    icon: "/Service icons/amazon-lockers.png",
     popular: true,
     category: "shipping",
   },
@@ -84,7 +85,7 @@ const services = [
     name: "Document Shredding",
     description: "Secure document destruction services for personal and business use",
     priceRange: "$1/lb",
-    icon: "🗂️",
+    icon: "/Service icons/paper-shredder.png",
     popular: false,
     category: "business",
   },
@@ -93,7 +94,7 @@ const services = [
     name: "ATM Services",
     description: "On-site ATM for convenient cash access during your visit",
     priceRange: "Standard Fees",
-    icon: "💳",
+    icon: "/Service icons/atm-service.png",
     popular: false,
     category: "business",
   },
@@ -102,8 +103,12 @@ const services = [
 export function ServicesGrid() {
   const [selectedCategory, setSelectedCategory] = useState("all")
 
-  const filteredServices =
-    selectedCategory === "all" ? services : services.filter((service) => service.category === selectedCategory)
+  // Main services (first 6)
+  const mainServices = services.slice(0, 6)
+  const bottomServices = services.slice(6, 8) // ATM and Document Shredding
+  
+  const filteredMainServices =
+    selectedCategory === "all" ? mainServices : mainServices.filter((service) => service.category === selectedCategory)
 
   const categories = [
     { id: "all", name: "All Services" },
@@ -116,35 +121,33 @@ export function ServicesGrid() {
     <section className="py-12 sm:py-16 lg:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Mobile-Responsive Section Header */}
-        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <div className="inline-block vintage-banner px-4 sm:px-6 py-2 sm:py-3 rounded-lg mb-4 sm:mb-6">
-            <div className="vintage-banner-content font-bold text-sm sm:text-base lg:text-lg">
-              COMPLETE SERVICE CENTER
-            </div>
+        <div className="text-center mb-12 lg:mb-16">
+          <div className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <div className="w-2 h-2 bg-accent rounded-full"></div>
+            COMPLETE SERVICE CENTER
           </div>
-          <h2 className="font-cartoon font-bold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-primary mb-4 tracking-tight px-2">
-            All Your Needs Under One
-            <span className="font-body text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-accent block -mt-1 lg:-mt-2 font-medium">
-              Modern Roof
-            </span>
+          <h2 className="font-cartoon font-bold text-4xl sm:text-5xl lg:text-6xl text-foreground mb-6 tracking-tight">
+            Everything You Need
+            <span className="block text-accent mt-2">In One Place</span>
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl lg:max-w-3xl mx-auto leading-relaxed px-4">
-            From laundry and dry cleaning to shipping and business services, we're your complete convenience solution in
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            From modern laundry services to shipping solutions and business amenities, 
+            we provide comprehensive convenience for your daily needs in 
             <span className="text-accent font-semibold"> Clarkston, Georgia</span>.
           </p>
         </div>
 
-        {/* Mobile-Responsive Category Filter */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-2">
+        {/* Modern Category Filter */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12 px-2">
           {categories.map((category) => (
             <Button
               key={category.id}
-              variant={selectedCategory === category.id ? "default" : "outline"}
+              variant="ghost"
               onClick={() => setSelectedCategory(category.id)}
-              className={`rounded-full px-3 sm:px-4 lg:px-6 py-2 text-xs sm:text-sm lg:text-base font-semibold transition-all hover:scale-105 ${
+              className={`rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 ${
                 selectedCategory === category.id 
-                  ? "bg-accent text-accent-foreground vintage-glow" 
-                  : "border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                  ? "bg-accent text-accent-foreground shadow-lg" 
+                  : "text-muted-foreground hover:text-foreground hover:bg-accent/10"
               }`}
             >
               {category.name}
@@ -152,9 +155,9 @@ export function ServicesGrid() {
           ))}
         </div>
 
-        {/* Mobile-Responsive Services Grid with Spotlight Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-          {filteredServices.map((service, index) => {
+        {/* Main Services Grid - Centered */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {filteredMainServices.map((service, index) => {
             // Determine glow color based on service category
             let glowColor: 'primary' | 'accent' | 'footer' = 'primary';
             if (service.category === 'laundry') glowColor = 'primary';
@@ -163,70 +166,143 @@ export function ServicesGrid() {
             
             const CardContent = (
               <>
-                {/* Mobile-Responsive Corner Banner */}
-                {service.popular && (
-                  <div className="absolute -top-1 -right-1 vintage-banner px-2 sm:px-3 py-1 text-xs rounded-bl-lg z-10">
-                    <div className="vintage-banner-content font-bold">
-                      POPULAR
+
+
+                {/* Icon Section with Gradient Background */}
+                <div className="relative mb-6">
+                  <div className="w-20 h-20 mx-auto mb-4 relative">
+                    {/* Gradient background circle */}
+                    <div className={`absolute inset-0 rounded-full opacity-20 group-hover:opacity-30 transition-opacity ${
+                      service.category === 'laundry' ? 'bg-gradient-to-br from-primary to-primary/60' :
+                      service.category === 'shipping' ? 'bg-gradient-to-br from-accent to-accent/60' :
+                      'bg-gradient-to-br from-footer to-footer/60'
+                    }`}></div>
+                    
+                    {/* Icon container */}
+                    <div className="relative w-full h-full bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 p-3">
+                      <Image
+                        src={service.icon}
+                        alt={`${service.name} service icon`}
+                        width={48}
+                        height={48}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
                   </div>
-                )}
-
-                <div className="flex items-start justify-between mb-3 sm:mb-4">
-                  {/* Mobile-Responsive Icon */}
-                  <div className="service-icon w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-primary/10 rounded-xl flex items-center justify-center text-2xl sm:text-3xl group-hover:animate-vintage-wiggle transition-all group-hover:bg-accent/20">
-                    {service.icon}
-                  </div>
-                  <div className="service-arrow opacity-0 group-hover:opacity-100 transition-opacity text-accent text-lg sm:text-xl font-bold">
-                    →
-                  </div>
                 </div>
 
-                <div className="mb-3 sm:mb-4 flex-grow">
-                  <h3 className="font-cartoon font-bold text-lg sm:text-xl text-foreground mb-2 group-hover:text-accent transition-colors line-clamp-2">
+                {/* Content Section */}
+                <div className="text-center space-y-4">
+                  <h3 className="font-cartoon font-bold text-xl text-foreground group-hover:text-accent transition-colors">
                     {service.name}
                   </h3>
-                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed line-clamp-3 sm:line-clamp-none">{service.description}</p>
-                </div>
+                  
+                  <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                    {service.description}
+                  </p>
 
-                {/* Mobile-Responsive Price Badge */}
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 mt-auto">
-                  <div className="vintage-border px-2 sm:px-3 py-1 rounded-lg bg-white">
-                    <span className="font-bold text-accent text-xs sm:text-sm">{service.priceRange}</span>
+                  {/* Action Button */}
+                  <div className="pt-2">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="border-2 border-primary/20 hover:border-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300 font-semibold"
+                    >
+                      Learn More
+                    </Button>
                   </div>
-                  <Button variant="ghost" size="sm" className="text-accent hover:text-accent/80 hover:bg-accent/10 font-semibold text-xs sm:text-sm p-1 sm:p-2">
-                    Learn More →
-                  </Button>
                 </div>
 
-                {/* Hover Effect Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+                {/* Subtle hover effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
               </>
             );
 
             return (
-              <div key={service.id}>
-                {/* Desktop: Use GlowCard with spotlight effect */}
-                <div className="hidden lg:block">
-                  <GlowCard
-                    glowColor={glowColor}
-                    customSize={true}
-                    className="service-card group relative overflow-hidden h-full flex flex-col min-h-[320px]"
-                  >
-                    {CardContent}
-                  </GlowCard>
-                </div>
-                
-                {/* Mobile/Tablet: Use regular Card without spotlight */}
-                <div className="block lg:hidden">
-                  <Card className="service-card group relative overflow-hidden h-full flex flex-col min-h-[280px] sm:min-h-[320px] p-4 sm:p-6 hover:shadow-lg transition-shadow">
-                    {CardContent}
-                  </Card>
+              <div key={service.id} className="group">
+                {/* Modern Service Card */}
+                <div className="relative bg-white rounded-3xl p-8 h-full flex flex-col shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-accent/20 overflow-hidden">
+                  {CardContent}
                 </div>
               </div>
             );
           })}
         </div>
+
+        {/* Bottom Services - Centered */}
+        {selectedCategory === "all" && (
+          <div className="mt-16">
+            <div className="flex justify-center gap-8 max-w-2xl mx-auto">
+              {bottomServices.map((service, index) => {
+                let glowColor: 'primary' | 'accent' | 'footer' = 'primary';
+                if (service.category === 'laundry') glowColor = 'primary';
+                else if (service.category === 'shipping') glowColor = 'accent';
+                else if (service.category === 'business') glowColor = 'footer';
+                
+                const CardContent = (
+                  <>
+                    {/* Icon Section with Gradient Background */}
+                    <div className="relative mb-6">
+                      <div className="w-20 h-20 mx-auto mb-4 relative">
+                        {/* Gradient background circle */}
+                        <div className={`absolute inset-0 rounded-full opacity-20 group-hover:opacity-30 transition-opacity ${
+                          service.category === 'laundry' ? 'bg-gradient-to-br from-primary to-primary/60' :
+                          service.category === 'shipping' ? 'bg-gradient-to-br from-accent to-accent/60' :
+                          'bg-gradient-to-br from-footer to-footer/60'
+                        }`}></div>
+                        
+                        {/* Icon container */}
+                        <div className="relative w-full h-full bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 p-3">
+                          <Image
+                            src={service.icon}
+                            alt={`${service.name} service icon`}
+                            width={48}
+                            height={48}
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="text-center space-y-4">
+                      <h3 className="font-cartoon font-bold text-xl text-foreground group-hover:text-accent transition-colors">
+                        {service.name}
+                      </h3>
+                      
+                      <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
+                        {service.description}
+                      </p>
+
+                      {/* Action Button */}
+                      <div className="pt-2">
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          className="border-2 border-primary/20 hover:border-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300 font-semibold"
+                        >
+                          Learn More
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* Subtle hover effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+                  </>
+                );
+
+                return (
+                  <div key={service.id} className="group">
+                    {/* Modern Service Card */}
+                    <div className="relative bg-white rounded-3xl p-8 h-full flex flex-col shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-accent/20 overflow-hidden w-80">
+                      {CardContent}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )
